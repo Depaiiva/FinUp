@@ -23,6 +23,9 @@ Thumbs.db
 
 ### Environment variables ###
 .env
+.classpath
+.factorypath
+.project
 
 ### Docker ###
 postgres_data/

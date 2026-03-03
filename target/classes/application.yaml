@@ -3,8 +3,8 @@ spring:
     name: finance
   datasource:
     url: jdbc:postgresql://localhost:5432/finup
-    username: postgres
-    password: postgres
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
