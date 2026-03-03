@@ -289,7 +289,7 @@ package base:
 
 ## 13. Milestones do Projeto
 ### Milestone 1 — Fundação Técnica
-- [ x ] Configuração do projeto Spring Boot
+- [x] Configuração do projeto Spring Boot
 - [ ] Modelagem do banco de dados
 - [ ] Implementação de autenticação
 - [ ] CRUD de contas e transações
