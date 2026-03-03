@@ -1,4 +1,4 @@
-package com.depaiva.finance;
+package br.com.finup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

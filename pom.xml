@@ -8,10 +8,10 @@
 		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.depaiva</groupId>
-	<artifactId>finance</artifactId>
+	<groupId>br.com.finup</groupId>
+	<artifactId>finup</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>finance</name>
+	<name>finup</name>
 	<description>finance application</description>
 	<url/>
 	<licenses>
