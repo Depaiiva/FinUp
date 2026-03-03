@@ -286,41 +286,41 @@ Exemplo de package base:
 
 ## 13. Milestones do Projeto
 ### Milestone 1 — Fundação Técnica
--[] Configuração do projeto Spring Boot
--[] Modelagem do banco de dados
--[] Implementação de autenticação
--[] CRUD de contas e transações
--[] Testes básicos
+- [ ] Configuração do projeto Spring Boot
+- [ ] Modelagem do banco de dados
+- [ ] Implementação de autenticação
+- [ ] CRUD de contas e transações
+- [ ] Testes básicos
 Resultado esperado: Sistema funcional básico com persistência e autenticação.
 
 ### Milestone 2 — Camada de Visualização e Importação
--[] Dashboard inicial
--[] Parser CSV e OFX
--[] Sistema de categorização automática simples
--[] Melhorias de UX
+- [ ] Dashboard inicial
+- [ ] Parser CSV e OFX
+- [ ] Sistema de categorização automática simples
+- [ ] Melhorias de UX
 Resultado esperado: Sistema utilizável no dia a dia manualmente.
 
 ### Milestone 3 — Integração Bancária
--[] Integração com agregador financeiro
--[] Fluxo OAuth2
--[] Sincronização automática
--[] Armazenamento seguro de tokens
+- [ ] Integração com agregador financeiro
+- [ ] Fluxo OAuth2
+- [ ] Sincronização automática
+- [ ] Armazenamento seguro de tokens
 Resultado esperado: Automatização da entrada de dados financeiros.
 
 ### Milestone 4 — Robustez e Produção
--[] Logs estruturados
--[] Métricas e monitoramento
--[] Deploy com Docker
--[] CI/CD
--[] Hardening de segurança
+- [ ] Logs estruturados
+- [ ] Métricas e monitoramento
+- [ ] Deploy com Docker
+- [ ] CI/CD
+- [ ] Hardening de segurança
 Resultado esperado: Aplicação preparada para ambiente real.
 
 ### Milestone 5 — Evolução Avançada
--[] Sistema de metas financeiras
--[] Orçamento mensal inteligente
--[] Conciliação automática
--[] Event-driven architecture
--[] Preparação para microsserviços
+- [ ] Sistema de metas financeiras
+- [ ] Orçamento mensal inteligente
+- [ ] Conciliação automática
+- [ ] Event-driven architecture
+- [ ] Preparação para microsserviços
 Resultado esperado: Sistema completo e arquiteturalmente maduro.
 
 ## Conclusão
