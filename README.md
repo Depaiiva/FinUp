@@ -10,6 +10,7 @@ Construir uma aplicação web para controle financeiro pessoal com o objetivo de
 - Planejar metas e orçamentos
 - Visualizar a evolução financeira
 - Integrar contas bancárias para automatizar importações
+
 O projeto não terá fins lucrativos inicialmente e será utilizado como ambiente de prática avançada em backend com Spring Boot e arquitetura moderna.
 
 ### 1.2 Problema que o Sistema Resolve
@@ -156,6 +157,7 @@ Requer:
 - mTLS
 - Dynamic Client Registration
 - FAPI Advanced
+
 Alta complexidade técnica e regulatória.
 
 ### 5.2 Uso de Agregador Financeiro (Recomendado para MVP)
@@ -168,6 +170,7 @@ Vantagens:
 - Sandbox de testes
 - SDKs prontos
 - Dados já normalizados
+
 Recomendação: iniciar com agregador para reduzir complexidade.
 
 ## 6. Arquitetura do Sistema
@@ -291,6 +294,7 @@ Exemplo de package base:
 - [ ] Implementação de autenticação
 - [ ] CRUD de contas e transações
 - [ ] Testes básicos
+
 Resultado esperado: Sistema funcional básico com persistência e autenticação.
 
 ### Milestone 2 — Camada de Visualização e Importação
@@ -298,6 +302,7 @@ Resultado esperado: Sistema funcional básico com persistência e autenticação
 - [ ] Parser CSV e OFX
 - [ ] Sistema de categorização automática simples
 - [ ] Melhorias de UX
+
 Resultado esperado: Sistema utilizável no dia a dia manualmente.
 
 ### Milestone 3 — Integração Bancária
@@ -305,6 +310,7 @@ Resultado esperado: Sistema utilizável no dia a dia manualmente.
 - [ ] Fluxo OAuth2
 - [ ] Sincronização automática
 - [ ] Armazenamento seguro de tokens
+
 Resultado esperado: Automatização da entrada de dados financeiros.
 
 ### Milestone 4 — Robustez e Produção
@@ -313,6 +319,7 @@ Resultado esperado: Automatização da entrada de dados financeiros.
 - [ ] Deploy com Docker
 - [ ] CI/CD
 - [ ] Hardening de segurança
+
 Resultado esperado: Aplicação preparada para ambiente real.
 
 ### Milestone 5 — Evolução Avançada
@@ -321,6 +328,7 @@ Resultado esperado: Aplicação preparada para ambiente real.
 - [ ] Conciliação automática
 - [ ] Event-driven architecture
 - [ ] Preparação para microsserviços
+
 Resultado esperado: Sistema completo e arquiteturalmente maduro.
 
 ## Conclusão
