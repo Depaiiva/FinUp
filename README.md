@@ -223,16 +223,16 @@ Motivos:
 ## 7. Estrutura do Projeto (Modularização)
 
 Exemplo de módulos:
-- app-core
-- app-auth
-- app-user
-- app-account
-- app-import
-- app-integration
-- app-web
+- core
+- auth
+- user
+- account
+- import
+- integration
+- web
 
-Exemplo de package base:
-- br.com.seuprojeto.fincontrol
+package base:
+- br.com.finup
 
 ## 8. Design da API REST
 ### Autenticação
