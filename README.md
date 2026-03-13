@@ -248,6 +248,8 @@ Módulos:
 - auth
 - user
 - account
+- transaction
+- category
 - import
 - integration
 - web
@@ -278,6 +280,11 @@ package base:
 - POST /api/bank-connections
 - GET /api/bank-connections/{id}/sync
 - POST /api/integrations/webhook
+
+### API de Voz
+- GET /api/voice/balance
+- GET /api/voice/expenses/today
+- POST /api/voice/expense
 
 ## 9. Segurança Técnica
 - JWT com refresh token
