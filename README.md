@@ -10,44 +10,51 @@ Construir uma aplicação web para controle financeiro pessoal com o objetivo de
 - Planejar metas e orçamentos
 - Visualizar a evolução financeira
 - Integrar contas bancárias para automatizar importações
-
-O projeto não terá fins lucrativos inicialmente e será utilizado como ambiente de prática avançada em backend com Spring Boot e arquitetura moderna.
+- Permitir interações com sistemas de **assistente de voz**
 
 ### 1.2 Problema que o Sistema Resolve
 - Falta de centralização das informações financeiras
 - Necessidade de acessar múltiplos aplicativos bancários
 - Dificuldade em visualizar padrões de gasto
 - Falta de planejamento estruturado
+- Pouca acessibilidade para interação rápida com dados financeiros
 
 #### 1.3 Objetivos Técnicos
 - Aplicar arquitetura bem estruturada (monólito modular evolutivo)
 - Trabalhar com integrações externas reais (Open Finance ou agregadores)
 - Implementar autenticação segura e boas práticas de segurança
 - Desenvolver uma aplicação com preocupações de produção (logs, métricas, deploy)
+- Criar múltiplos canais de interação com o sistema (web + voice)
 
 ## 2. Escopo Funcional
 
 ### 2.1 MVP (Produto Mínimo Viável)
-- Autenticação
+
+#### Autenticação
 - Cadastro
 - Login
 - JWT com refresh token
-- Contas
+
+#### Contas
 - Criar conta (corrente, poupança, cartão)
 - Listar e editar contas
-- Transações
+
+#### Transações
 - Registrar receita
 - Registrar despesa
 - Editar e excluir
 - Filtrar por período
 - Associar categoria
-- Categorias
+
+#### Categorias
 - Criar categorias e subcategorias
-- Dashboard
+
+#### Dashboard
 - Saldo consolidado
 - Gastos por categoria
 - Evolução mensal
-- Importação Manual
+
+#### Importação Manual
 - Upload CSV
 - Upload OFX
 - Parser de extratos
@@ -61,6 +68,7 @@ O projeto não terá fins lucrativos inicialmente e será utilizado como ambient
 - Multiusuário (família)
 - PWA ou aplicativo mobile
 - Categorização inteligente com machine learning
+- Integração com assistente de voz
 
 ## 3. Requisitos
 
@@ -98,7 +106,9 @@ O projeto deve respeitar princípios da LGPD:
 - Monitoramento de falhas
 
 ## 4. Modelo de Domínio
+
 ### 4.1 Entidades Principais
+
 #### User
 - id (UUID)
 - email
@@ -149,6 +159,7 @@ O projeto deve respeitar princípios da LGPD:
 - last_sync
 
 ## 5. Integração Bancária
+
 ### 5.1 Integração Direta com Open Finance
 
 Requer:
@@ -202,6 +213,16 @@ Motivos:
 #### Mensageria (opcional)
 - RabbitMQ ou Kafka
 
+#### Integrações
+- Agregador financeiro
+- Webhooks externos
+- Open Finance
+
+#### Interface de Voz
+- Alexa Skills Kit
+- AWS Lambda
+- Python ou Node.js
+
 #### Armazenamento
 - S3 ou MinIO
 
@@ -222,7 +243,7 @@ Motivos:
 
 ## 7. Estrutura do Projeto (Modularização)
 
-Exemplo de módulos:
+Módulos:
 - core
 - auth
 - user
@@ -230,6 +251,7 @@ Exemplo de módulos:
 - import
 - integration
 - web
+- voice
 
 package base:
 - br.com.finup
@@ -322,19 +344,43 @@ Resultado esperado: Automatização da entrada de dados financeiros.
 
 Resultado esperado: Aplicação preparada para ambiente real.
 
-### Milestone 5 — Evolução Avançada
+### Milestone 5 - Interface de voz
+- [ ] Criação da Alexa Skill
+- [ ] Implementação de intents financeiras
+- [ ] Integração com API FinUp
+- [ ] Account de linking OAuth2
+- [ ] Testes de interação por voz
+
+Resultado esperado: Usuários podem consultar e registrar dados financeiros usando a voz.
+
+### Milestone 6 — Evolução Avançada
 - [ ] Sistema de metas financeiras
 - [ ] Orçamento mensal inteligente
 - [ ] Conciliação automática
 - [ ] Event-driven architecture
 - [ ] Preparação para microsserviços
+- [ ] Automação e insights financeiros
 
 Resultado esperado: Sistema completo e arquiteturalmente maduro.
 
+# 13. Evolução Arquitetural
+
+O projeto foi concebido para evoluir progressivamente:
+
+1. **Monólito modular simples**
+2. **Integrações externas**
+3. **Automação financeira**
+4. **Interfaces múltiplas (Web + Voice)**
+5. **Arquitetura orientada a eventos**
+6. **Possível decomposição em microsserviços**
+
 ## Conclusão
+
 Este projeto permite evolução progressiva:
+
 - Começa simples
 - Ganha automação
 - Evolui para integração real com bancos
 - Se torna um sistema robusto de nível profissional
+
 Ele consolida conhecimento em Spring Boot, arquitetura de software, segurança, integrações externas, DevOps e engenharia de sistemas.
