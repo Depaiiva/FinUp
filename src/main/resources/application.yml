@@ -21,3 +21,7 @@ spring:
     enabled: true
     # garante que ele crie a tabela de histórico se não existir
     baseline-on-migrate: true
+
+api:
+  security:
+    key-secret: minhaAchaveAsuperAsecretaAcomAmaisAdeA32AcaracteresA123456 

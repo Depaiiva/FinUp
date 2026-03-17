@@ -4,7 +4,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -15,6 +18,7 @@ import lombok.Data;
 public class User {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
   private String name;
@@ -28,5 +32,7 @@ public class User {
   @Column(name = "created_at")
   private LocalDateTime createdAt;
 
+  @Embedded
   private UserPreference preferences;
+
 }

@@ -6,6 +6,8 @@ import br.com.finup.user.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -17,7 +19,8 @@ public class Account {
   @Id
   private UUID id;
 
-  @Column(name = "user_id", nullable = false)
+  @ManyToOne
+  @JoinColumn(name = "user_id", nullable = false)
   private User UserId;
 
   @Column(nullable = false)
@@ -26,7 +29,7 @@ public class Account {
   @Column(nullable = false)
   private String type;
 
-  private String currency;
+  private String currency = "BRL";
 
   @Column(name = "external_id")
   private String externalId;
