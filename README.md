@@ -320,7 +320,7 @@ package base:
 ### Milestone 1 — Fundação Técnica
 - [x] Configuração do projeto Spring Boot
 - [x] Modelagem do banco de dados
-- [ ] Implementação de autenticação
+- [x] Implementação de autenticação
 - [ ] CRUD de contas e transações
 - [ ] Testes básicos
 
