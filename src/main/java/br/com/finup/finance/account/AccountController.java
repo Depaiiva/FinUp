@@ -9,12 +9,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.finup.finance.account.dto.CreateAccount;
+import br.com.finup.finance.account.dto.RequestAccount;
 import br.com.finup.finance.account.dto.ResponseAccount;
 import lombok.AllArgsConstructor;
 
@@ -33,14 +35,23 @@ public class AccountController {
   }
 
   @GetMapping
-  public ResponseEntity<List<ResponseAccount>> toList() {
-    List<ResponseAccount> list = accountService.toListAccount();
+  public ResponseEntity<List<ResponseAccount>> toList(@AuthenticationPrincipal UserDetails userDetails) {
+    List<ResponseAccount> list = accountService.toListAccount(userDetails);
     return ResponseEntity.ok(list);
   }
 
+  @PutMapping
+  public ResponseEntity<ResponseAccount> updateAccount(@RequestBody RequestAccount request,
+      @RequestParam(name = "id", required = true) String id, @AuthenticationPrincipal UserDetails userDetails) {
+    ResponseAccount accountUpdate = accountService.update(request, id, userDetails);
+    return ResponseEntity.ok(accountUpdate);
+
+  }
+
   @DeleteMapping()
-  public ResponseEntity<String> deleteAccount(@RequestParam(name = "id", required = true) String id) {
-    String msg = accountService.delete(id);
+  public ResponseEntity<String> deleteAccount(@RequestParam(name = "id", required = true) String id,
+      @AuthenticationPrincipal UserDetails userDetails) {
+    String msg = accountService.delete(id, userDetails);
     return ResponseEntity.status(HttpStatus.OK).body(msg);
   }
 }

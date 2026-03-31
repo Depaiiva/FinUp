@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.finup.finance.account.dto.CreateAccount;
+import br.com.finup.finance.account.dto.RequestAccount;
 import br.com.finup.finance.account.dto.ResponseAccount;
 import br.com.finup.user.User;
 import br.com.finup.user.UserRepository;
@@ -35,28 +36,51 @@ public class AccountService {
     account.setBalance(BigDecimal.ZERO);
     accountRepository.save(account);
 
-    return new ResponseAccount("Account created successfully.",
+    return new ResponseAccount(
         account.getName(),
         account.getBalance(),
         account.getType(),
         account.getId());
   }
 
-  public String delete(String id) {
-    accountRepository.deleteById(UUID.fromString(id));
+  public String delete(String id, UserDetails userDetails) {
+    User user = loadUser(userDetails);
+    accountRepository.deleteByIdAndUser(UUID.fromString(id), user);
     return "Account deleted successfully";
   }
 
-  public List<ResponseAccount> toListAccount() {
+  public List<ResponseAccount> toListAccount(UserDetails userDetails) {
+    User user = loadUser(userDetails);
 
-    List<Account> list = accountRepository.findAll();
+    List<Account> list = accountRepository.findAllByUser(user);
     List<ResponseAccount> listAccount = list.stream().map(u -> new ResponseAccount(
-        "list",
         u.getName(),
         u.getBalance(),
         u.getType(),
         u.getId())).collect(Collectors.toList());
     return listAccount;
+  }
+
+  public ResponseAccount update(RequestAccount request, String id, UserDetails userDetails) throws RuntimeException {
+    User user = loadUser(userDetails);
+    Optional<Account> account = accountRepository.findByIdAndUser(UUID.fromString(id), user);
+
+    if (account.isEmpty()) {
+      throw new RuntimeException("Account not found");
+    }
+
+    Account accountFind = account.get();
+    accountFind.setName(request.name());
+    accountFind.setType(request.type());
+    accountFind.setBalance(request.balance());
+
+    accountRepository.save(accountFind);
+
+    return new ResponseAccount(
+        accountFind.getName(),
+        accountFind.getBalance(),
+        accountFind.getType(),
+        accountFind.getId());
   }
 
   private User loadUser(UserDetails userDetails) throws UsernameNotFoundException {
