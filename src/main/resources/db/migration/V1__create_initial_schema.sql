@@ -5,10 +5,7 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     name VARCHAR(100) NOT NULL,
     preferences JSONB, -- Para armazenar preferências do usuário
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    pref_theme VARCHAR(255) DEFAULT 'light',
-    pref_currency VARCHAR(255) DEFAULT 'BRL',
-    pref_notification_enabled BOOLEAN DEFAULT FALSE
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 2. Tabela de Categorias (Com auto-relacionamento para subcategorias)
