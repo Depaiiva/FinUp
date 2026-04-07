@@ -2,6 +2,8 @@ package br.com.finup.category;
 
 import java.util.UUID;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +19,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "categories")
+@DynamicUpdate
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
