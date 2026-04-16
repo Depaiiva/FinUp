@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import br.com.finup.category.dto.RequestCategory;
-import br.com.finup.category.dto.RequestId;
 import br.com.finup.category.dto.ResponseCategory;
 import br.com.finup.user.User;
 import br.com.finup.user.UserRepository;
@@ -55,14 +54,14 @@ public class CategoryService {
     return listCategory;
   }
 
-  public String delete(UserDetails userDetails, RequestId request) throws RuntimeException {
+  public String delete(UserDetails userDetails, String request) throws RuntimeException {
     User user = loadUser(userDetails);
 
-    if (!categoryRepository.existsByIdAndUser(UUID.fromString(request.id()), user.getId())) {
+    if (!categoryRepository.existsByIdAndUser(UUID.fromString(request), user.getId())) {
       throw new RuntimeException("Category not found");
     }
 
-    categoryRepository.deleteById(UUID.fromString(request.id()));
+    categoryRepository.deleteById(UUID.fromString(request));
     return "Category deleted sucessfully";
   }
 
@@ -82,6 +81,23 @@ public class CategoryService {
         category.getDescription(),
         category.getId(),
         category.getUser());
+  }
+
+  public ResponseCategory findByName(UserDetails userDetails, String name) throws RuntimeException {
+    User user = loadUser(userDetails);
+
+    Optional<Category> resultSearch = categoryRepository.findByNameAndUser(name, user.getId());
+
+    if (resultSearch.isEmpty())
+      throw new RuntimeException("Category not found");
+
+    Category categoryFind = resultSearch.get();
+
+    return new ResponseCategory(
+        categoryFind.getName(),
+        categoryFind.getDescription(),
+        categoryFind.getId(),
+        categoryFind.getUser());
   }
 
   private User loadUser(UserDetails userDetails) throws RuntimeException {

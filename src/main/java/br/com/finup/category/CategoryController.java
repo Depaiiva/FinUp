@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.finup.category.dto.RequestCategory;
-import br.com.finup.category.dto.RequestId;
 import br.com.finup.category.dto.ResponseCategory;
 import lombok.AllArgsConstructor;
 
@@ -40,17 +40,26 @@ public class CategoryController {
     return ResponseEntity.ok(response);
   }
 
-  @DeleteMapping
-  public ResponseEntity<String> delete(@AuthenticationPrincipal UserDetails userDetails,
-      @RequestBody RequestId request) {
-    String msg = categoryService.delete(userDetails, request);
+  @DeleteMapping("/{id}")
+  public ResponseEntity<String> delete(
+      @AuthenticationPrincipal UserDetails userDetails,
+      @PathVariable String id) {
+    String msg = categoryService.delete(userDetails, id);
     return ResponseEntity.ok(msg);
   }
 
-  @PutMapping
+  @PutMapping("/{id}")
   public ResponseEntity<ResponseCategory> update(@AuthenticationPrincipal UserDetails userDetails,
-      @RequestBody RequestCategory request, @RequestParam(name = "id", required = true) String id) {
+      @RequestBody RequestCategory request, @PathVariable String id) {
     ResponseCategory response = categoryService.update(userDetails, request, id);
+    return ResponseEntity.ok(response);
+  }
+
+  @GetMapping("/search")
+  public ResponseEntity<ResponseCategory> listbyName(
+      @AuthenticationPrincipal UserDetails userDetails,
+      @RequestParam(name = "name", required = true) String name) {
+    ResponseCategory response = categoryService.findByName(userDetails, name);
     return ResponseEntity.ok(response);
   }
 
