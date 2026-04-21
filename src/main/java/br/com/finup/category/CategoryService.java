@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.finup.category.dto.RequestCategory;
 import br.com.finup.category.dto.ResponseCategory;
+import br.com.finup.exceptions.CategoryNotFound;
+import br.com.finup.exceptions.UserNotFound;
 import br.com.finup.user.User;
 import br.com.finup.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -54,12 +56,11 @@ public class CategoryService {
     return listCategory;
   }
 
-  public String delete(UserDetails userDetails, String request) throws RuntimeException {
+  public String delete(UserDetails userDetails, String request) throws UserNotFound {
     User user = loadUser(userDetails);
 
-    if (!categoryRepository.existsByIdAndUser(UUID.fromString(request), user.getId())) {
-      throw new RuntimeException("Category not found");
-    }
+    if (!categoryRepository.existsByIdAndUser(UUID.fromString(request), user.getId()))
+      throw new UserNotFound();
 
     categoryRepository.deleteById(UUID.fromString(request));
     return "Category deleted sucessfully";
@@ -67,7 +68,7 @@ public class CategoryService {
 
   public ResponseCategory update(UserDetails userDetails, RequestCategory request, String id) {
     Category category = categoryRepository.findById(UUID.fromString(id))
-        .orElseThrow(() -> new RuntimeException("Category not found"));
+        .orElseThrow(() -> new UserNotFound());
 
     if (request.name() != null)
       category.setName(request.name());
@@ -89,7 +90,7 @@ public class CategoryService {
     Optional<Category> resultSearch = categoryRepository.findByNameAndUser(name, user.getId());
 
     if (resultSearch.isEmpty())
-      throw new RuntimeException("Category not found");
+      throw new CategoryNotFound();
 
     Category categoryFind = resultSearch.get();
 
@@ -100,12 +101,12 @@ public class CategoryService {
         categoryFind.getUser());
   }
 
-  private User loadUser(UserDetails userDetails) throws RuntimeException {
+  private User loadUser(UserDetails userDetails) throws UserNotFound {
 
     Optional<User> user = userRepository.findByEmail(userDetails.getUsername());
 
     if (user.isEmpty()) {
-      throw new RuntimeException("User not found");
+      throw new UserNotFound();
     }
 
     return user.get();

@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import br.com.finup.exceptions.AccountNotFound;
+import br.com.finup.exceptions.UserNotFound;
 import br.com.finup.finance.account.dto.CreateAccount;
 import br.com.finup.finance.account.dto.RequestAccount;
 import br.com.finup.finance.account.dto.ResponseAccount;
@@ -66,7 +68,7 @@ public class AccountService {
     Optional<Account> account = accountRepository.findByIdAndUser(UUID.fromString(id), user);
 
     if (account.isEmpty()) {
-      throw new RuntimeException("Account not found");
+      throw new AccountNotFound();
     }
 
     Account accountFind = account.get();
@@ -88,7 +90,7 @@ public class AccountService {
     Optional<User> user = userRepository.findByEmail(userDetails.getUsername());
 
     if (user.isEmpty()) {
-      throw new UsernameNotFoundException("User not found");
+      throw new UserNotFound();
     }
 
     return user.get();

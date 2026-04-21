@@ -25,7 +25,7 @@ public class AuthService {
   public void signup(SignupRequest request) {
 
     if (userRepository.existsByEmail(request.email())) {
-      throw new RuntimeException("Email já cadastrado");
+      throw new RuntimeException("Email already registered");
     }
 
     User user = new User();
