@@ -14,17 +14,24 @@ import br.com.finup.exceptions.UserNotFound;
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(UserNotFound.class)
-  private ResponseEntity<String> userNotFound(UserNotFound exception) {
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+  private ResponseEntity<RestErroMessage> userNotFound(UserNotFound exception) {
+    RestErroMessage erroResponse = new RestErroMessage(exception.getMessage(), HttpStatus.NOT_FOUND,
+        exception.getDetail());
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erroResponse);
   }
 
   @ExceptionHandler(AccountNotFound.class)
-  private ResponseEntity<String> accountNotFound(AccountNotFound exception) {
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+  private ResponseEntity<RestErroMessage> accountNotFound(AccountNotFound exception) {
+    RestErroMessage erroResponse = new RestErroMessage(exception.getMessage(), HttpStatus.NOT_FOUND,
+        exception.getDetail());
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erroResponse);
   }
 
   @ExceptionHandler(CategoryNotFound.class)
-  private ResponseEntity<String> categoryNotFound(CategoryNotFound exception) {
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+  private ResponseEntity<RestErroMessage> categoryNotFound(CategoryNotFound exception) {
+    RestErroMessage erroResponse = new RestErroMessage(exception.getMessage(), HttpStatus.NOT_FOUND,
+        exception.getDetail());
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erroResponse);
   }
+
 }

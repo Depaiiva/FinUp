@@ -84,21 +84,19 @@ public class CategoryService {
         category.getUser());
   }
 
-  public ResponseCategory findByName(UserDetails userDetails, String name) throws RuntimeException {
+  public List<ResponseCategory> findByName(UserDetails userDetails, String name) throws RuntimeException {
     User user = loadUser(userDetails);
 
-    Optional<Category> resultSearch = categoryRepository.findByNameAndUser(name, user.getId());
+    List<Category> resultSearch = categoryRepository.findByNameAndUser(name, user.getId());
 
     if (resultSearch.isEmpty())
       throw new CategoryNotFound();
 
-    Category categoryFind = resultSearch.get();
-
-    return new ResponseCategory(
-        categoryFind.getName(),
-        categoryFind.getDescription(),
-        categoryFind.getId(),
-        categoryFind.getUser());
+    return resultSearch.stream().map(category -> new ResponseCategory(
+        category.getName(),
+        category.getDescription(),
+        category.getId(),
+        category.getUser())).collect(Collectors.toList());
   }
 
   private User loadUser(UserDetails userDetails) throws UserNotFound {

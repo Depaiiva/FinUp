@@ -29,4 +29,4 @@ spring:
 
 api:
   security:
-    key-secret: minhaAchaveAsuperAsecretaAcomAmaisAdeA32AcaracteresA123456 
+    key-secret: minhaAchaveAsuperAsecretaAcomAmaisAdeA32AcaracteresA123456

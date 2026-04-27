@@ -56,10 +56,10 @@ public class CategoryController {
   }
 
   @GetMapping("/search")
-  public ResponseEntity<ResponseCategory> listbyName(
+  public ResponseEntity<List<ResponseCategory>> listbyName(
       @AuthenticationPrincipal UserDetails userDetails,
       @RequestParam(name = "name", required = true) String name) {
-    ResponseCategory response = categoryService.findByName(userDetails, name);
+    List<ResponseCategory> response = categoryService.findByName(userDetails, name);
     return ResponseEntity.ok(response);
   }
 
