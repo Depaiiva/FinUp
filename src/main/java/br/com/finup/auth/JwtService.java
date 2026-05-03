@@ -1,4 +1,4 @@
-package br.com.finup.auth.service;
+package br.com.finup.auth;
 
 import java.util.Date;
 import java.util.function.Function;

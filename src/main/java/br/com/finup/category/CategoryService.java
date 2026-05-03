@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.finup.category.dto.RequestCategory;
 import br.com.finup.category.dto.ResponseCategory;
-import br.com.finup.exceptions.CategoryNotFound;
-import br.com.finup.exceptions.UserNotFound;
+import br.com.finup.core.exceptions.CategoryNotFound;
+import br.com.finup.core.exceptions.UserNotFound;
 import br.com.finup.user.User;
 import br.com.finup.user.UserRepository;
 import lombok.AllArgsConstructor;

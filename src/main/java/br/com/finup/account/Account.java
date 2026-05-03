@@ -1,4 +1,4 @@
-package br.com.finup.finance.account;
+package br.com.finup.account;
 
 import java.math.BigDecimal;
 import java.util.UUID;

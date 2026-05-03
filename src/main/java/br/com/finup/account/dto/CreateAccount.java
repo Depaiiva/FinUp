@@ -1,6 +1,6 @@
-package br.com.finup.finance.account.dto;
+package br.com.finup.account.dto;
 
-import br.com.finup.finance.account.TypeAccount;
+import br.com.finup.account.TypeAccount;
 import jakarta.validation.constraints.NotEmpty;
 
 public record CreateAccount(

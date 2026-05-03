@@ -13,7 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.finup.auth.service.JwtService;
+import br.com.finup.auth.JwtService;
 import br.com.finup.core.RestErroMessage;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

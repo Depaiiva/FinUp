@@ -1,4 +1,4 @@
-package br.com.finup.core;
+package br.com.finup.core.config;
 
 import javax.sql.DataSource;
 

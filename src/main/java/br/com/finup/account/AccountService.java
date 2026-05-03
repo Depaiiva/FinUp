@@ -1,4 +1,4 @@
-package br.com.finup.finance.account;
+package br.com.finup.account;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,11 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.finup.exceptions.AccountNotFound;
-import br.com.finup.exceptions.UserNotFound;
-import br.com.finup.finance.account.dto.CreateAccount;
-import br.com.finup.finance.account.dto.RequestAccount;
-import br.com.finup.finance.account.dto.ResponseAccount;
+import br.com.finup.core.exceptions.AccountNotFound;
+import br.com.finup.core.exceptions.UserNotFound;
+import br.com.finup.account.dto.CreateAccount;
+import br.com.finup.account.dto.RequestAccount;
+import br.com.finup.account.dto.ResponseAccount;
 import br.com.finup.user.User;
 import br.com.finup.user.UserRepository;
 import lombok.AllArgsConstructor;

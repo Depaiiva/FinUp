@@ -1,4 +1,4 @@
-package br.com.finup.finance.transaction;
+package br.com.finup.transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

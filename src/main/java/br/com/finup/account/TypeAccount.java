@@ -1,4 +1,4 @@
-package br.com.finup.finance.account;
+package br.com.finup.account;
 
 public enum TypeAccount {
   CURRENT_ACCOUNT,

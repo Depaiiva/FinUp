@@ -1,9 +1,9 @@
-package br.com.finup.finance.account.dto;
+package br.com.finup.account.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import br.com.finup.finance.account.TypeAccount;
+import br.com.finup.account.TypeAccount;
 
 public record ResponseAccount(
     String name,

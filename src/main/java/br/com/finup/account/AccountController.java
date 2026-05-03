@@ -1,4 +1,4 @@
-package br.com.finup.finance.account;
+package br.com.finup.account;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.finup.finance.account.dto.CreateAccount;
-import br.com.finup.finance.account.dto.RequestAccount;
-import br.com.finup.finance.account.dto.ResponseAccount;
+import br.com.finup.account.dto.CreateAccount;
+import br.com.finup.account.dto.RequestAccount;
+import br.com.finup.account.dto.ResponseAccount;
 import lombok.AllArgsConstructor;
 
 @RestController

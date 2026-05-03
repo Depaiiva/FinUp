@@ -1,4 +1,4 @@
-package br.com.finup.exceptions;
+package br.com.finup.core.exceptions;
 
 import org.springframework.http.HttpStatus;
 

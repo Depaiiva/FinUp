@@ -13,9 +13,9 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.finup.exceptions.AccountNotFound;
-import br.com.finup.exceptions.CategoryNotFound;
-import br.com.finup.exceptions.UserNotFound;
+import br.com.finup.core.exceptions.CategoryNotFound;
+import br.com.finup.core.exceptions.UserNotFound;
+import br.com.finup.core.exceptions.AccountNotFound;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {

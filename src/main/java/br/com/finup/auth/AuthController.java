@@ -1,4 +1,4 @@
-package br.com.finup.auth.controller;
+package br.com.finup.auth;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.finup.auth.dto.LoginRequest;
 import br.com.finup.auth.dto.LoginResponse;
 import br.com.finup.auth.dto.SignupRequest;
-import br.com.finup.auth.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 

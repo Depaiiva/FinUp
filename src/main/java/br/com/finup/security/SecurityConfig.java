@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import br.com.finup.auth.service.CustomUserDetailService;
+import br.com.finup.auth.CustomUserDetailService;
 import lombok.AllArgsConstructor;
 
 @Configuration
