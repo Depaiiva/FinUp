@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.finup.category.dto.RequestCategory;
 import br.com.finup.category.dto.ResponseCategory;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -28,7 +29,7 @@ public class CategoryController {
   private final CategoryService categoryService;
 
   @PostMapping
-  public ResponseEntity<ResponseCategory> createTransaction(@RequestBody RequestCategory request,
+  public ResponseEntity<ResponseCategory> createTransaction(@Valid @RequestBody RequestCategory request,
       @AuthenticationPrincipal UserDetails userDetails) {
     ResponseCategory response = categoryService.create(request, userDetails);
     return ResponseEntity.status(HttpStatus.CREATED).body(response);

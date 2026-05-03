@@ -6,9 +6,9 @@ import jakarta.validation.constraints.Size;
 
 public record SignupRequest(
 
-    @NotBlank String name,
+    @NotBlank(message = "The name field cannot be empty.") String name,
 
-    @Email String email,
+    @Email @NotBlank(message = "The email field cannot be empty.") String email,
 
-    @Size(min = 8) String password) {
+    @Size(min = 8, message = "Password must be at least 8 characters long") String password) {
 }

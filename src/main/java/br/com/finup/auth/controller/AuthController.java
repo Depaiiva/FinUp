@@ -12,6 +12,7 @@ import br.com.finup.auth.dto.LoginRequest;
 import br.com.finup.auth.dto.LoginResponse;
 import br.com.finup.auth.dto.SignupRequest;
 import br.com.finup.auth.service.AuthService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -23,12 +24,12 @@ public class AuthController {
 
   @PostMapping("signup")
   @ResponseStatus(HttpStatus.CREATED)
-  public void signup(@RequestBody SignupRequest request) {
+  public void signup(@Valid @RequestBody SignupRequest request) {
     service.signup(request);
   }
 
   @PostMapping("login")
-  public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+  public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
     LoginResponse response = service.login(request);
 
     return ResponseEntity.ok(response);

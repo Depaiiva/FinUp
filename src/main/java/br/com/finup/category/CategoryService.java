@@ -67,8 +67,9 @@ public class CategoryService {
   }
 
   public ResponseCategory update(UserDetails userDetails, RequestCategory request, String id) {
+
     Category category = categoryRepository.findById(UUID.fromString(id))
-        .orElseThrow(() -> new UserNotFound());
+        .orElseThrow(() -> new CategoryNotFound());
 
     if (request.name() != null)
       category.setName(request.name());
